@@ -1,5 +1,9 @@
+import { Flight } from '../models/flight.js'
+
 function newFlight(req, res) {
-  console.log('working!');
+  res.render('flights/new', {
+    title: 'Add Flight'
+  })
 }
 
 export {
