@@ -6,6 +6,11 @@ function newFlight(req, res) {
   })
 }
 
+function create(req, res) {
+  console.log('working');
+}
+
 export {
-  newFlight as new
+  newFlight as new,
+  create,
 }
