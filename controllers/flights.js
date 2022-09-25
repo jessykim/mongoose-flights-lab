@@ -31,8 +31,13 @@ function index(req, res) {
   })
 }
 
+function deleteFlight(req, res) {
+  console.log("delete function working!");
+}
+
 export {
   newFlight as new,
   create,
   index,
+  deleteFlight as delete,
 }
