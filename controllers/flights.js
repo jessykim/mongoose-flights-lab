@@ -56,10 +56,15 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  console.log('edit is working!');
+}
+
 export {
   newFlight as new,
   create,
   index,
   deleteFlight as delete,
   show,
+  edit
 }
