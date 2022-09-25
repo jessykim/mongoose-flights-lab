@@ -7,11 +7,17 @@
     <label for="airline-input">Airline:</label>
     <input type="text" name="airline" id="airline-input">
     <label for="airport-input">Airport:</label>
-    <input type="text" name="airport" id="airport-input">
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN" selected>DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
     <label for="flight-number">Flight Number:</label>
     <input type="number" name="flightNo" id="flight-number-input">
     <label for="departs-input">Departure:</label>
-    <input type="date" name="departs" id="departs-input">
+    <input type="datetime-local" name="departs" id="departs-input">
     <button type="submit">Add Flight</button>
   </form>
 </main>
