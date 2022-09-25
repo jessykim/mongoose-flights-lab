@@ -32,7 +32,14 @@ function index(req, res) {
 }
 
 function deleteFlight(req, res) {
-  console.log("delete function working!");
+  Flight.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.redirect('/flights')
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/flights')
+  })
 }
 
 export {
