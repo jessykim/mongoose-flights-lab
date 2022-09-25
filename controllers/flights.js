@@ -42,9 +42,14 @@ function deleteFlight(req, res) {
   })
 }
 
+function show(req, res) {
+  console.log("show function working!");
+}
+
 export {
   newFlight as new,
   create,
   index,
   deleteFlight as delete,
+  show,
 }
