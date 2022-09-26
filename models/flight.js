@@ -19,11 +19,19 @@ const flightSchema = new Schema({
   },
   departs: { 
     type: Date, 
-    default: Date.now,
+    default: yearFromNow(),
   }, 
 }, {
   timestamps: true
 })
+
+function yearFromNow() {
+  const today = new Date()
+  today.setFullYear(today.getFullYear()+1)
+  return today
+}
+
+yearFromNow()
 
 const Flight = mongoose.model('Flight', flightSchema)
 
