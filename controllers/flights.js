@@ -57,7 +57,17 @@ function show(req, res) {
 }
 
 function edit(req, res) {
-  console.log('edit is working!');
+  Flight.findById(req.params.id)
+  .then(flight => {
+    res.render('flights/edit', {
+      flight,
+      title: 'Edit Flight'
+    })
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/flights')
+  })
 }
 
 export {
