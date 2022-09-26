@@ -70,11 +70,16 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  console.log('update works!');
+}
+
 export {
   newFlight as new,
   create,
   index,
   deleteFlight as delete,
   show,
-  edit
+  edit,
+  update
 }
