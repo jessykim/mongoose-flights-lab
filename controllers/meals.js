@@ -1,7 +1,13 @@
 import { Meal } from '../models/meal.js'
 
 function newMeal(req, res) {
-  console.log('new meal is working!');
+  Meal.find({})
+  .then(meals => {
+    res.render('meals/new', {
+      title: 'Add Meal',
+      meals
+    })
+  })
 }
 
 export {
