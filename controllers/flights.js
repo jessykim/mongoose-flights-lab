@@ -104,6 +104,10 @@ function createTicket(req, res) {
   })
 }
 
+function deleteTicket(req, res) {
+  console.log('deleting tickets!');
+}
+
 export {
   newFlight as new,
   create,
@@ -113,4 +117,5 @@ export {
   edit,
   update,
   createTicket,
+  deleteTicket
 }
