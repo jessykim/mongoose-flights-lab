@@ -23,8 +23,6 @@ function create(req, res) {
       mealNames.push(meals[i].name)
     }
     if (mealNames.includes(req.body.name)) {
-      // alert('The dropdown already includes the meal you are trying to add!')
-      console.log('error running!')
       res.render('meals/new', {
         title: 'Duplicate Error',
         message: 'The dropdown already includes the meal you are trying to add!',
