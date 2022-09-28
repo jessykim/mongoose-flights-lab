@@ -144,6 +144,10 @@ function addToMeals(req, res) {
   })
 }
 
+function deleteMeal(req, res) {
+  console.log('deleting a meal');
+}
+
 export {
   newFlight as new,
   create,
@@ -155,4 +159,5 @@ export {
   createTicket,
   deleteTicket,
   addToMeals,
+  deleteMeal,
 }
