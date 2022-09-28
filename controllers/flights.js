@@ -131,7 +131,18 @@ function deleteTicket(req, res) {
 }
 
 function addToMeals(req, res) {
-  console.log('adding meals to post!');
+  Flight.findById(req.params.id)
+  .then(flight => {
+    flight.meals.push(req.body.mealId)
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/flights')
+  })
 }
 
 export {
