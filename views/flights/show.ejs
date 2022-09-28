@@ -62,7 +62,7 @@
           <tr>
             <td><%= ticket.createdAt.toLocaleDateString() %></td>
             <td><%= ticket.seat %></td>
-            <td><%= ticket.price  %></td>
+            <td>$<%= ticket.price  %></td>
             <td>
               <form action="/flights/<%= flight._id %>/tickets/<%= ticket._id %>?_method=DELETE" method="POST">
                 <button>X</button>
