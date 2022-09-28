@@ -101,12 +101,12 @@ function createTicket(req, res) {
     })
     .catch(err => {
       console.log(err);
-      res.redirect('/')
+      res.redirect('/flights')
     })
   })
   .catch(err => {
     console.log(err);
-    res.redirect('/')
+    res.redirect('/flights')
   })
 }
 
@@ -125,7 +125,7 @@ function deleteTicket(req, res) {
   })
   .catch(err => {
     console.log(err);
-    res.redirect('/')
+    res.redirect('/flights')
   })
 }
 
@@ -145,7 +145,22 @@ function addToMeals(req, res) {
 }
 
 function deleteMeal(req, res) {
-  console.log('deleting a meal');
+  Flight.findById(req.params.flightId)
+  .then(flight => {
+    flight.meals.remove({_id:req.params.mealId})
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/')
+  })
 }
 
 export {
