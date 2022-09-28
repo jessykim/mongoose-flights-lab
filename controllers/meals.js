@@ -15,13 +15,27 @@ function newMeal(req, res) {
 }
 
 function create(req, res) {
-  Meal.create(req.body)
-  .then(meal => {
-    res.redirect('/meals/new')
-  })
-  .catch(err => {
-    console.log(err);
-    res.redirect('/meals')
+  Meal.find({})
+  .then(meals => {
+    console.log(meals);
+    let mealNames = []
+    for (let i = 0; i < meals.length; i++) {
+      console.log(meals[i].name);
+      mealNames.push(meals[i].name)
+    }
+    if (mealNames.includes(req.body.name)) {
+      console.log('no can do')
+    } else {
+      console.log('yes')
+      Meal.create(req.body)
+      .then(meal => {
+        res.redirect('/meals/new')
+      })
+      .catch(err => {
+        console.log(err);
+        res.redirect('/meals')
+      })
+    }
   })
 }
 
