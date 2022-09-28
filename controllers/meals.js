@@ -5,37 +5,45 @@ function newMeal(req, res) {
   .then(meals => {
     res.render('meals/new', {
       title: 'Add Meal',
+      message: 'Please first ensure that the meal you are adding is not already included in the dropdown. Thank you!',
       meals
     })
   })
   .catch(err => {
     console.log(err);
-    res.redirect('/meals')
+    res.redirect('/meals/new')
   })
 }
 
 function create(req, res) {
   Meal.find({})
   .then(meals => {
-    console.log(meals);
     let mealNames = []
     for (let i = 0; i < meals.length; i++) {
-      console.log(meals[i].name);
       mealNames.push(meals[i].name)
     }
     if (mealNames.includes(req.body.name)) {
-      console.log('no can do')
+      // alert('The dropdown already includes the meal you are trying to add!')
+      console.log('error running!')
+      res.render('meals/new', {
+        title: 'Duplicate Error',
+        message: 'The dropdown already includes the meal you are trying to add!',
+        meals
+      })
     } else {
-      console.log('yes')
       Meal.create(req.body)
       .then(meal => {
         res.redirect('/meals/new')
       })
       .catch(err => {
         console.log(err);
-        res.redirect('/meals')
+        res.redirect('/meals/new')
       })
     }
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/meals/new')
   })
 }
 

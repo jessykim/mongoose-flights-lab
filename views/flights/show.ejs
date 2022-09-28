@@ -31,7 +31,9 @@
   </form>
   <ul>
     <% flight.meals.forEach(meal => { %>
-      <li><%= meal.name %></li>
+      <li>
+        <%= meal.name %> 
+      </li>
     <% }) %> 
   </ul>
     
@@ -66,7 +68,8 @@
             <td>
               <form action="/flights/<%= flight._id %>/tickets/<%= ticket._id %>?_method=DELETE" method="POST">
                 <button>X</button>
-              </form></td>
+              </form>
+            </td>
           </tr>
         <% }) %>
       </tbody>
