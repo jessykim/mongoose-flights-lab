@@ -1,4 +1,5 @@
 import { Flight } from '../models/flight.js'
+import { Meal } from '../models/meal.js'
 
 function newFlight(req, res) {
   const newFlight = new Flight()
@@ -48,10 +49,15 @@ function deleteFlight(req, res) {
 
 function show(req, res) {
   Flight.findById(req.params.id)
+  .populate('meals')
   .then(flight => {
-    res.render('flights/show', {
-      title: 'Flight Information',
-      flight: flight,
+    Meal.find({_id: {$nin: flight.meal}})
+    .then(meals => {
+      res.render('flights/show', {
+        title: 'Flight Information',
+        flight: flight,
+        meals: meals,
+      })
     })
   })
   .catch(err => {
@@ -124,6 +130,10 @@ function deleteTicket(req, res) {
   })
 }
 
+function addToMeals(req, res) {
+  console.log('adding meals to post!');
+}
+
 export {
   newFlight as new,
   create,
@@ -133,5 +143,6 @@ export {
   edit,
   update,
   createTicket,
-  deleteTicket
+  deleteTicket,
+  addToMeals,
 }

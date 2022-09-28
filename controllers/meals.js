@@ -8,10 +8,21 @@ function newMeal(req, res) {
       meals
     })
   })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/meals')
+  })
 }
 
 function create(req, res) {
-  console.log('creating meals is working!');
+  Meal.create(req.body)
+  .then(meal => {
+    res.redirect('/meals/new')
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/meals')
+  })
 }
 
 export {
