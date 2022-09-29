@@ -1,14 +1,14 @@
 table {
-  font-size: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid black;
 }
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid #424748;
 }
 
 table td {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 }
 
@@ -17,26 +17,63 @@ form * {
   border-radius: 5px;
 }
 
-section {
+#flight-info {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 16px;
+  border: 1px solid black;
+  padding: 15px;
 }
 
 section div:nth-child(even) {
   font-weight: bold;
 }
 
-#add-form {
+h2 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#meals-tickets {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-column-gap: 100px;
+  padding: 15px;
+}
+
+#add-ticket-form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 16px;
-  margin-bottom: 20px;
 }
 
-#add-form > button {
+#add-ticket-form > label {
+  text-align: center;
+}
+
+#add-ticket-form > button {
   font-size: 16px;
-  width: 160px;
   grid-column: 2 / 3;
+  place-self: center;
   margin-bottom: 24px;
+}
+
+#add-meal-form {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
+#add-meal-form > button {
+  font-size: 16px;
+  height: 30px;
+  width: 100px;
+}
+
+#meal-dropdown {
+  height: 30px;
+  width: 200px;
+  margin-bottom: 16px;
+
 }
