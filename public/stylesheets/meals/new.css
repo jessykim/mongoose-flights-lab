@@ -1,8 +1,11 @@
 form {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 352px));
+  grid-template-rows: auto auto;
   font-size: 20px;
+  margin-top: 40px;
+  border: 1px solid black;
+  padding: 25px;
 }
 
 form * {
@@ -11,9 +14,24 @@ form * {
   font-size: 20px;
 }
 
-form > button {
-  grid-column: span 2;
-  width: 160px;
-  margin-left: auto;
-  font-size: 22px;
+form > label {
+  font-weight: bold;
 }
+
+form > button {
+  width: fit-content;
+  margin-left: auto;
+  font-size: 18px;
+}
+
+p {
+  font-style: italic;
+}
+
+select {
+  height: 35px;
+  width: 120px;
+  font-size: inherit;
+  margin-bottom: 40px;
+}
+
